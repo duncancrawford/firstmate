@@ -49,6 +49,8 @@ SUB_HOME_PARENT_MARKER=".fm-secondmate-parent"
 . "$SCRIPT_DIR/fm-secondmate-charter-lib.sh"
 # shellcheck source=bin/fm-wake-lib.sh
 . "$SCRIPT_DIR/fm-wake-lib.sh"
+# shellcheck source=bin/fm-project-origin-lib.sh
+. "$SCRIPT_DIR/fm-project-origin-lib.sh"
 
 usage() {
   echo "usage: fm-home-seed.sh <id> <home|-> {<project>...|--no-projects}" >&2
@@ -495,7 +497,15 @@ EOF
     return 0
   fi
   url=$(source_origin_url "$project" "$mode" "$src") || return 1
-  git clone --quiet "$url" "$dst"
+  # The origin is read from the source clone's own config, so it is data rather
+  # than a constant, and git executes a remote-helper transport such as
+  # "ext::<command>" as a command. fm-project-origin-lib.sh already refuses
+  # those, and fm-remote-home-provision.sh already applies it on the far side;
+  # this is the near side of the same clone.
+  fm_project_origin_safe "$url" \
+    || { echo "error: project $project origin is not an accepted clone URL: $url" >&2; return 1; }
+  # `--` so an option-shaped origin cannot be absorbed as a flag.
+  git clone --quiet -- "$url" "$dst"
 }
 
 validate_seed_project() {
