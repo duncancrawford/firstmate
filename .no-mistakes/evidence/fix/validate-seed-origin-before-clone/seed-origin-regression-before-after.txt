@@ -1,0 +1,11 @@
+base checkout at 8f756bb; guard occurrences in bin/fm-home-seed.sh: 0 (expect 0)
+--- BASE (before fix): seed with origin ext::fm-origin-probe, protocol.ext.allow=always
+scaffolded: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-regress.eyKsWL/parent/data/seed-base/brief.md (secondmate charter)
+fatal: Could not read from remote repository.
+exit=128
+helper executed by git during seed? YES-EXECUTED
+--- TARGET 7d55ade (after fix): same origin, same git config
+scaffolded: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-regress.eyKsWL/parent/data/seed-target/brief.md (secondmate charter)
+error: project alpha origin is not an accepted clone URL: ext::fm-origin-probe
+exit=1
+helper executed by git during seed? no

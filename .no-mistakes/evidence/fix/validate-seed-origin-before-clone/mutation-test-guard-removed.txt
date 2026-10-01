@@ -1,0 +1,29 @@
+Note: switching to '7d55ade10ba6f73af1a62cccd3ac6cccaf220480'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+mutant A guard occurrences: 0 (expect 0)
+ bin/fm-home-seed.sh | 2 --
+ 1 file changed, 2 deletions(-)
+mutant A test exit=1 (expect non-zero)
+ok - an ordinary file:// origin still clones through the local seed path
+not ok - the refusal did not name the reason the origin was rejected (missing: 'not an accepted clone URL')
+ bin/fm-home-seed.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+mutant B (no --) test exit=0
+ok - an ordinary file:// origin still clones through the local seed path
+ok - an ext:: origin is refused before git clone runs
+ok - an option-shaped origin is refused before git clone runs

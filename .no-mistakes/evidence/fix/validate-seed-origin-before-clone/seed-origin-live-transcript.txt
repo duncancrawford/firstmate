@@ -1,0 +1,87 @@
+=== git version: git version 2.55.0
+=== scenario 1: ordinary file:// origin seeds a clone
+origin: file:///private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/alpha.git
+Note: switching to '7d55ade10ba6f73af1a62cccd3ac6cccaf220480'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+scaffolded: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/parent/data/seed-ok/brief.md (secondmate charter)
+home=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/home-ok
+exit=0
+seeded clone origin: file:///private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/alpha.git
+seeded projects dir: alpha
+
+=== scenario 2: ext:: origin whose command would create a probe file; protocol.ext.allow=always so git itself would NOT refuse it
+origin now: ext::sh -c touch%20/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/ext-probe-executed%20%25S
+git sees protocol.ext.allow = always
+Note: switching to '7d55ade10ba6f73af1a62cccd3ac6cccaf220480'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+scaffolded: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/parent/data/seed-unsafe/brief.md (secondmate charter)
+error: project alpha origin is not an accepted clone URL: ext::sh -c touch%20/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/ext-probe-executed%20%25S
+exit=1
+probe file created by the ext:: command? no
+clone dir present? no
+home-unsafe left behind after rollback? no
+parent registry files after rollback:
+<tmp>/parent/data/projects.md
+<tmp>/parent/data/seed-ok/brief.md
+<tmp>/parent/data/secondmates.md
+
+=== scenario 2b: same ext:: origin, direct git clone with -- (what the script would run without the guard) - proves the probe mechanism is real
+fatal: Bad remote-ext placeholder '%2'.
+fatal: Could not read from remote repository.
+
+probe file created by direct git clone? no
+
+=== scenario 3: option-shaped scp-like origin written straight into .git/config
+origin now: -oProxyCommand=touch:x
+Note: switching to '7d55ade10ba6f73af1a62cccd3ac6cccaf220480'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+scaffolded: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-seed-live.tVUOod/parent/data/seed-flag/brief.md (secondmate charter)
+error: project alpha origin is not an accepted clone URL: -oProxyCommand=touch:x
+exit=1
+clone dir present? no
+tmp cleaned: yes

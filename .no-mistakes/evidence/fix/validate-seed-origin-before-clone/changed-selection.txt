@@ -1,0 +1,6 @@
+=== bin/fm-test-run.sh --list --changed --base 8f756bb (files changed vs base: bin/fm-home-seed.sh bin/fm-test-run.sh tests/fm-home-seed-origin.test.sh )
+2:tests/fm-home-seed-origin.test.sh
+=== --list --family secondmate contains it?
+2:tests/fm-home-seed-origin.test.sh
+=== --list --family unclassified contains it?
+not in unclassified (good)
