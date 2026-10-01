@@ -73,10 +73,15 @@ pass "an ext:: origin is refused before git clone runs"
 # --- and an option-shaped origin cannot be absorbed as a flag ------------------
 # Written through `git config` because `git remote set-url` refuses an
 # option-shaped value itself - which is the point: a .git/config can still
-# hold one, and that is where the seed path reads it from.
-git -C "$PARENT/projects/alpha" config remote.origin.url '--upload-pack=touch /tmp/fm-origin-probe'
+# hold one, and that is where the seed path reads it from. The value is
+# scp-like so normalize_origin_url passes it through unchanged (a colon-free
+# value would be canonicalized to an absolute path first) and the guard sees
+# the leading dash itself.
+git -C "$PARENT/projects/alpha" config remote.origin.url '-oProxyCommand=touch:x'
 seed seed-flag "$TMP_ROOT/home-flag"
 [ "$SEED_RC" -ne 0 ] || fail "seeding accepted an option-shaped origin: $SEED_OUT"
+assert_contains "$SEED_OUT" 'not an accepted clone URL' \
+  "the refusal did not name the reason the option-shaped origin was rejected"
 assert_absent "$TMP_ROOT/home-flag/projects/alpha" "the option-shaped origin still produced a clone"
 pass "an option-shaped origin is refused before git clone runs"
 
