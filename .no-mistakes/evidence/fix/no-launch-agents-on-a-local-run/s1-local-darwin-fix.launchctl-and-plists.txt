@@ -1,0 +1,6 @@
+# launchctl calls seen by the fixture
+print gui/501
+print gui/501
+
+# $HOME/Library/LaunchAgents
+ls: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/home/Library/LaunchAgents: No such file or directory

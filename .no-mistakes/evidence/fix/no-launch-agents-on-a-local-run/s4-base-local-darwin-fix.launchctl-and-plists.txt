@@ -1,0 +1,26 @@
+# launchctl calls seen by the fixture
+print gui/501
+print gui/501/dev.firstmate.remote-job
+print gui/501/dev.firstmate.herdr.fm-remote
+print gui/501
+print gui/501/dev.firstmate.remote-job
+bootout gui/501/dev.firstmate.remote-job
+bootstrap gui/501 /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case5/home/Library/LaunchAgents/dev.firstmate.remote-job.plist
+kickstart -k gui/501/dev.firstmate.remote-job
+bootout gui/501/dev.firstmate.remote-job
+bootstrap gui/501 /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case5/home/Library/LaunchAgents/dev.firstmate.remote-job.plist
+kickstart -k gui/501/dev.firstmate.remote-job
+bootout gui/501/dev.firstmate.herdr.fm-remote
+bootstrap gui/501 /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case5/home/Library/LaunchAgents/dev.firstmate.herdr.fm-remote.plist
+kickstart -k gui/501/dev.firstmate.herdr.fm-remote
+print gui/501
+print gui/501/dev.firstmate.remote-job
+print gui/501/dev.firstmate.herdr.fm-remote
+print gui/501/dev.firstmate.herdr.fm-remote
+
+# $HOME/Library/LaunchAgents
+total 16
+drwxr-xr-x@ 4 duncancrawford  staff   128 Oct  1 17:17 .
+drwxr-xr-x@ 4 duncancrawford  staff   128 Oct  1 17:17 ..
+-rw-r--r--@ 1 duncancrawford  staff  1209 Oct  1 17:17 dev.firstmate.herdr.fm-remote.plist
+-rw-r--r--@ 1 duncancrawford  staff  1212 Oct  1 17:17 dev.firstmate.remote-job.plist

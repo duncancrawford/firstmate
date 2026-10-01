@@ -1,0 +1,27 @@
+mode=check
+path=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/home/.local/bin:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools:/usr/bin:/bin:/usr/sbin:/sbin
+entrypoint=no
+note: not launched through the fixed remote entrypoint; the reported PATH is this caller environment.
+platform=darwin
+required git=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools/git
+required jq=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools/jq
+required herdr=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin/herdr
+required tasks-axi=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin/tasks-axi
+required treehouse=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin/treehouse
+required harness=claude:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin/claude
+optional tmux=absent
+optional no-mistakes=absent
+optional gh=absent
+check herdr=ok: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case2/bin/herdr
+check gui-session=ok: gui/501
+check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+check launchagent=skip: this run did not come through the fixed remote entrypoint
+check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+check herdr-server=fixable: the herdr server for session fm-remote is not running
+check entrypoint-link=skip: this run did not come through the fixed remote entrypoint
+action: herdr-server: rerun this command with --fix to start it
+error: this host is not ready for a remote second mate; unresolved: herdr-server
+exit=1

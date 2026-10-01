@@ -1,0 +1,28 @@
+mode=fix
+path=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/home/.local/bin:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools:/usr/bin:/bin:/usr/sbin:/sbin
+entrypoint=no
+note: not launched through the fixed remote entrypoint; the reported PATH is this caller environment.
+platform=darwin
+fix herdr-server=applied: started the herdr server for session fm-remote
+required git=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools/git
+required jq=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/tools/jq
+required herdr=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin/herdr
+required tasks-axi=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin/tasks-axi
+required treehouse=/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin/treehouse
+required harness=claude:/private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin/claude
+optional tmux=absent
+optional no-mistakes=absent
+optional gh=absent
+check herdr=ok: /private/var/folders/3r/93wyl1w9045gms3gx1zwqwsh0000gn/T/fm-remote-doctor.I8fhqC/case1/bin/herdr
+check gui-session=ok: gui/501
+check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+check launchagent=skip: this run did not come through the fixed remote entrypoint
+check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+check herdr-server=fixable: session fm-remote is served by pid 15389 born outside the Aqua login session (unknown), so its panes cannot reach the login keychain
+check entrypoint-link=skip: this run did not come through the fixed remote entrypoint
+action: herdr-server: rerun this command with --fix so the launch agent takes the session over (its current panes close and the parent firstmate relaunches its mates)
+error: this host is not ready for a remote second mate; unresolved: herdr-server
+exit=1

@@ -1,0 +1,90 @@
+PASS S1: doctor prints entrypoint=no
+PASS S1: gui-session=ok (a GUI session exists, so the old code would have installed)
+PASS S1: reports check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+PASS S1: reports check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S1: reports check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+PASS S1: reports check launchagent=skip: this run did not come through the fixed remote entrypoint
+PASS S1: reports check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+PASS S1: reports check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S1: no fix launchagent=applied line
+PASS S1: no fix remote-job-worker=applied line
+PASS S1: no fixable/action lines for launchagent or remote-job-worker
+PASS S1: no action: remote-job-worker line
+PASS S1: Herdr agent plist absent in HOME
+PASS S1: remote-job plist absent in HOME
+PASS S1: launchctl never asked to bootout/bootstrap/kickstart
+PASS S1: no auto-login/FileVault/keychain tool reached
+PASS S1: entrypoint-link reports the same skip reason
+PASS S1: report keeps its shape: 10 check lines
+PASS S1b: reports check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: reports check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: reports check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: reports check launchagent=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: reports check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: reports check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S1b: no fix launchagent=applied line
+PASS S1b: no fix remote-job-worker=applied line
+PASS S1b: no fixable/action lines for launchagent or remote-job-worker
+PASS S1b: no action: remote-job-worker line
+PASS S1b: Herdr agent plist absent in HOME
+PASS S1b: remote-job plist absent in HOME
+PASS S1b: launchctl never asked to bootout/bootstrap/kickstart
+PASS S1b: no auto-login/FileVault/keychain tool reached
+PASS S2: doctor prints entrypoint=no with an empty marker
+PASS S2: reports check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+PASS S2: reports check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S2: reports check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+PASS S2: reports check launchagent=skip: this run did not come through the fixed remote entrypoint
+PASS S2: reports check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+PASS S2: reports check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S2: no fix launchagent=applied line
+PASS S2: no fix remote-job-worker=applied line
+PASS S2: no fixable/action lines for launchagent or remote-job-worker
+PASS S2: no action: remote-job-worker line
+PASS S2: Herdr agent plist absent in HOME
+PASS S2: remote-job plist absent in HOME
+PASS S2: launchctl never asked to bootout/bootstrap/kickstart
+PASS S2: no auto-login/FileVault/keychain tool reached
+PASS S3: fix launchagent=applied
+PASS S3: remote-job-worker repair attempted (fix line present; the fixture has no real worker to heartbeat)
+PASS S3: check launchagent=ok after repair
+PASS S3: check launchagent-scope=ok Aqua
+PASS S3: check remote-job-worker=ok after repair
+PASS S3: check remote-job-worker-loaded=ok
+PASS S3: no skip lines on the remote path
+PASS S3: Herdr agent plist written
+PASS S3: remote-job plist written
+PASS S3: launchctl bootstrapped the Herdr agent
+PASS S3: launchctl bootstrapped the remote-job worker
+PASS S3: herdr agent plist parses with the owned contract
+PASS S4-base: base doctor reports fix launchagent=applied on a local run (the bug)
+PASS S4-base: base doctor attempts the remote-job-worker install on a local run (the bug)
+PASS S4-base: base doctor wrote the Herdr agent plist locally
+PASS S4-base: base doctor wrote the remote-job plist locally
+PASS S4-base: base doctor bootstrapped into gui/<uid>
+PASS S5: platform=linux
+PASS S5: remote-job-worker skipped
+PASS S5: remote-job-probe skipped
+PASS S5: no fix remote-job-worker line
+PASS S5: no Linux worker state created under HOME
+PASS S5: launchctl never invoked
+PASS S5: herdr server still started locally (declined finding, decided behaviour)
+PASS S6: real launchctl reports gui/501 session ok
+PASS S6: real Directory Services login shell resolved (no FM_LAUNCH_AGENT_SHELL pin)
+PASS S6: reports check remote-job-worker=skip: this run did not come through the fixed remote entrypoint
+PASS S6: reports check remote-job-worker-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S6: reports check remote-job-probe=skip: this run did not come through the fixed remote entrypoint
+PASS S6: reports check launchagent=skip: this run did not come through the fixed remote entrypoint
+PASS S6: reports check launchagent-scope=skip: this run did not come through the fixed remote entrypoint
+PASS S6: reports check launchagent-loaded=skip: this run did not come through the fixed remote entrypoint
+PASS S6: no fix launchagent=applied line
+PASS S6: no fix remote-job-worker=applied line
+PASS S6: no fixable/action lines for launchagent or remote-job-worker
+PASS S6: no action: remote-job-worker line
+PASS S6: Herdr agent plist absent in HOME
+PASS S6: remote-job plist absent in HOME
+PASS S6: launchctl never asked to bootout/bootstrap/kickstart
+PASS S6: no auto-login/FileVault/keychain tool reached
+PASS S6: shim saw only print calls
+PASS S6: no REFUSED attempts in transcript
+FAILS=0
