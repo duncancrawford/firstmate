@@ -725,8 +725,26 @@ run_checks() { # <resolved-login-shell>
   CHECK_ACTIONS=()
   check_herdr
   check_gui_session
-  check_remote_job_worker
-  check_launch_agent "$shell"
+  # Both of the checks below install a reboot-surviving LaunchAgent under
+  # --fix, and this command is documented to run on a remote second mate's
+  # account, reached through fm-on.sh's fixed entrypoint - which is what sets
+  # FM_ROOT_OVERRIDE. Without that marker the run is a local invocation, where
+  # installing dev.firstmate.remote-job and the Aqua Herdr agent gives the
+  # captain's own machine persistence it never asked for and that no command
+  # here removes. check_entrypoint_link already reads the same marker the same
+  # way; these two were the pair that did not.
+  if [ -z "${FM_ROOT_OVERRIDE:-}" ]; then
+    local why="skip: this run did not come through the fixed remote entrypoint"
+    record remote-job-worker "$why"
+    record remote-job-worker-loaded "$why"
+    record remote-job-probe "$why"
+    record launchagent "$why"
+    record launchagent-scope "$why"
+    record launchagent-loaded "$why"
+  else
+    check_remote_job_worker
+    check_launch_agent "$shell"
+  fi
   check_herdr_server
   check_entrypoint_link
 }
