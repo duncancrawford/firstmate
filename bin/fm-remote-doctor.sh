@@ -36,7 +36,7 @@
 #   fix <check>=applied: <what changed>       (--fix only)
 #   fix <check>=failed: <why the repair did not land>   (--fix only)
 #   check <check>=ok: <evidence>
-#   check <check>=skip: <why this host is exempt>
+#   check <check>=skip: <why this host or this run is exempt>
 #   check <check>=fixable: <gap --fix can close>
 #   check <check>=human: <gap only a person at that machine can close>
 #   action: <check>: <the exact step to take>
@@ -51,7 +51,10 @@
 # wrapper for a required tool it can discover under nvm, asdf, or mise. It never
 # installs packages, creates a login session, writes an auto-login password,
 # changes FileVault, stores an account password, or replaces a non-Firstmate
-# wrapper; those remain reported gaps.
+# wrapper; those remain reported gaps. Reached without the entrypoint's
+# FM_ROOT_OVERRIDE, it skips the remote-job-worker and launch-agent checks
+# instead of installing either agent on the caller's own machine; run_checks
+# owns why.
 set -eu
 
 # Resolve this script's directory with builtins only: a host missing a required
